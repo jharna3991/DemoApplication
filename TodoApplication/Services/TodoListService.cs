@@ -15,10 +15,11 @@ namespace TodoApplication.Services
         {
             _db = db;
         }
-        public bool CreateTodo(TodoModel todo)
+        public async Task<TodoModel> CreateTodo(TodoModel todo)
         {
             _db.TodoList.Add(todo);
-            return Save();
+            await _db.SaveChangesAsync();
+            return todo;
         }
 
         public async Task<TodoModel> GetTodo(int Id)
@@ -31,29 +32,11 @@ namespace TodoApplication.Services
             return await _db.TodoList.ToListAsync();
         }
 
-        public bool Save()
-        {
-            return _db.SaveChanges() >= 0 ? true : false;
-        }
-
-        public bool TodoExists(string name)
-        {
-            bool value = _db.TodoList.Any(a => a.Name.ToLower().Trim() == name.ToLower().Trim());
-            return value;
-        }
-
-        public bool TodoExists(int id)
-        {
-            bool value = _db.TodoList.Any(a => a.Id == id);
-            return value;
-        }
-        
-        public bool UpdateTodo(TodoModel todo)
+        public async Task<int> UpdateTodo(TodoModel todo)
         {
             _db.TodoList.Update(todo);
-            return Save();
+            return await _db.SaveChangesAsync();
         }
 
-        
     }
 }

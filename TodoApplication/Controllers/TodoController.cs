@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TodoApplication.Data;
+using TodoApplication.Features.TodoFeatures.Commands;
 using TodoApplication.Features.TodoFeatures.Queries;
 
 namespace TodoApplication.Controllers
@@ -39,6 +40,47 @@ namespace TodoApplication.Controllers
                 return BadRequest("No Record Found");
             }
             return Ok(obj);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateTodoCommand command)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var obj= await _mediator.Send(command);
+                    return Ok(obj);
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Unable to save changes.");
+            }
+            return Ok(command);
+        }
+
+        [Route("Edit")]
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id,UpdateTodoCommand command)
+        {
+            //if (id != command.Id)
+            //{
+            //    return BadRequest("Not Found");
+            //}
+            try
+            {
+                var todo = await _mediator.Send(new GetTodoByIdQuery() { Id = id });
+                if (todo is not null)
+                {
+                    command.Id = todo.Id;
+                    return Ok(await _mediator.Send(command));
+                }
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Unable to save changes.");
+            }
+            return Ok(command);
         }
     }
 }

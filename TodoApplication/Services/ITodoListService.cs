@@ -10,10 +10,7 @@ namespace TodoApplication.Services
     {
         Task<IEnumerable<TodoModel>> GetTodoList();
         Task <TodoModel> GetTodo(int Id);
-        bool TodoExists(string name);
-        bool TodoExists(int id);
-        bool CreateTodo(TodoModel todo);
-        bool UpdateTodo(TodoModel todo);
-        bool Save();
+        Task<TodoModel> CreateTodo(TodoModel todo);
+        Task<int> UpdateTodo(TodoModel todo);
     }
 }

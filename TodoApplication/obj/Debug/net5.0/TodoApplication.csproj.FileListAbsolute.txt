@@ -8,6 +8,8 @@ C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\Tod
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\ref\TodoApplication.dll
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\TodoApplication.pdb
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\Humanizer.dll
+C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\MediatR.dll
+C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -58,5 +60,3 @@ C:\Users\kense\source\repos\TodoApplication\TodoApplication\obj\Debug\net5.0\Tod
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\obj\Debug\net5.0\ref\TodoApplication.dll
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\obj\Debug\net5.0\TodoApplication.pdb
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\obj\Debug\net5.0\TodoApplication.genruntimeconfig.cache
-C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\MediatR.dll
-C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
