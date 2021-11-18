@@ -24,14 +24,14 @@ namespace TodoApplication.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> TodoList()
         {
             return Ok(await _mediator.Send(new GetAllTodoListQuery()));
         }
 
         [Route("Details")]
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> TodoById(int id)
         {
             var obj = await _mediator.Send(new GetTodoByIdQuery() { Id = id });
 
@@ -63,10 +63,10 @@ namespace TodoApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id,UpdateTodoCommand command)
         {
-            //if (id != command.Id)
-            //{
-            //    return BadRequest("Not Found");
-            //}
+            if (id != command.Id)
+            {
+                return BadRequest("Not Found");
+            }
             try
             {
                 var todo = await _mediator.Send(new GetTodoByIdQuery() { Id = id });

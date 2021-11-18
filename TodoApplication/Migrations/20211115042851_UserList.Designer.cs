@@ -9,8 +9,8 @@ using TodoApplication.Data;
 namespace TodoApplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211109133036_AddTodoDb")]
-    partial class AddTodoDb
+    [Migration("20211115042851_UserList")]
+    partial class UserList
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,9 +33,36 @@ namespace TodoApplication.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("State")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.ToTable("TodoList");
+                });
+
+            modelBuilder.Entity("TodoApplication.Models.UserModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("lastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserList");
                 });
 #pragma warning restore 612, 618
         }

@@ -15,6 +15,7 @@ namespace TodoApplication.Data
         }
 
         public DbSet<TodoModel> TodoList { get; set; }
+        public DbSet<UserModel> UserList { get; set; }
     }
 
 }

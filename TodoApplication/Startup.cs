@@ -15,7 +15,10 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using TodoApplication.Data;
+using TodoApplication.Helpers;
 using TodoApplication.Services;
+using TodoApplication.Services.TodoListServices;
+using TodoApplication.Services.UserListServices;
 
 namespace TodoApplication
 {
@@ -33,6 +36,9 @@ namespace TodoApplication
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ITodoListService, TodoListService>();
+            services.AddScoped<IUserListService, UserListService>();
+            services.AddAutoMapper(typeof(AutoMapperProfiler));
+
 
             services.AddMediatR(Assembly.GetExecutingAssembly());
 

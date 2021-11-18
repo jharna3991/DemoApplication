@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TodoApplication.Models;
 using TodoApplication.Services;
+using TodoApplication.Services.TodoListServices;
 
 namespace TodoApplication.Features.TodoFeatures.Commands
 {
@@ -14,6 +15,7 @@ namespace TodoApplication.Features.TodoFeatures.Commands
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public bool State { get; set; }
 
         public class UpdateTodoCommandHandler : IRequestHandler<UpdateTodoCommand, int>
         {
@@ -28,9 +30,9 @@ namespace TodoApplication.Features.TodoFeatures.Commands
             {
                 var todo = await _todoListService.GetTodo(command.Id);
 
-                todo.Id = command.Id;
                 todo.Name = command.Name;
                 todo.Description = command.Description;
+                todo.State = command.State;
 
                 return await _todoListService.UpdateTodo(todo);
             }

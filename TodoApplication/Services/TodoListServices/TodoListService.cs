@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TodoApplication.Data;
 using TodoApplication.Models;
 
-namespace TodoApplication.Services
+namespace TodoApplication.Services.TodoListServices
 {
     public class TodoListService : ITodoListService
     {
@@ -29,6 +29,7 @@ namespace TodoApplication.Services
 
         public async Task<IEnumerable<TodoModel>> GetTodoList()
         {
+            //return await _db.TodoList.ToListAsync();
             return await _db.TodoList.ToListAsync();
         }
 
