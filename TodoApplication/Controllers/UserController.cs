@@ -23,6 +23,24 @@ namespace TodoApplication.Controllers
             _userListService = userListService;
             _mapper = mapper;
         }
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate([FromBody] LoginModel model)
+        {
+            //map UserModel to Registermodel
+            var user = _mapper.Map<UserModel>(model);
+
+            try
+            {
+                var obj = _userListService.Authenticate(model.UserName, model.Password);
+                return Ok();
+            }
+            catch (AppException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+
+        }
 
         [AllowAnonymous]
         [HttpPost("register")]
@@ -32,7 +50,7 @@ namespace TodoApplication.Controllers
             var user = _mapper.Map<UserModel>(model);
             try
             {
-                var obj = _userListService.CreateUser(user);
+                var obj = _userListService.CreateUser(user, model.Password);
                 return Ok();
             }
             catch (AppException ex)

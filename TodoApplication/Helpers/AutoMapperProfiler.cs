@@ -12,6 +12,8 @@ namespace TodoApplication.Helpers
         public AutoMapperProfiler()
         {
             CreateMap<UserModel, RegisterUser>().ReverseMap();
+            CreateMap<UserModel, LoginModel>().ReverseMap();
+
         }
     }
 }

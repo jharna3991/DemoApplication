@@ -9,12 +9,13 @@ namespace TodoApplication.Services.UserListServices
 {
     public interface IUserListService
     {
+        bool Authenticate(string username, string password);
+
         //ICollection<UserModel> GetUsers();
         //UserModel GetUser(int nationalParkId);
-        bool CreateUser(UserModel user);
+        bool CreateUser(UserModel user, string password);
+        bool UserNameExists(string name);
         //bool UpdateNationalPark(NationalPark nationalPark);
         //bool DeleteNationalPark(NationalPark nationalPark);
-
-        bool Save();
     }
 }
