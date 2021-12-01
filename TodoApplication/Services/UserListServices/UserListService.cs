@@ -49,8 +49,6 @@ namespace TodoApplication.Services.UserListServices
 
         private void CreatePassword(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
-            if (password == null)
-                throw new ArgumentNullException("password");
             if (string.IsNullOrWhiteSpace(password))
                 throw new ArgumentNullException("Value cannot be empty or whitespace only string.", "password");
 
@@ -73,13 +71,13 @@ namespace TodoApplication.Services.UserListServices
         {
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException("Field is required");
 
             var user = _db.UserList.SingleOrDefault(x => x.UserName == username);
 
             //check if username exists
             if (user == null)
-                throw new AppException("Username is required");
+                throw new AppException("Username does not exist");
 
             if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
                 throw new AppException("Password does not match");
@@ -107,6 +105,11 @@ namespace TodoApplication.Services.UserListServices
             }
 
             return true;
+        }
+
+        public UserModel GetUserById(int Id)
+        {
+            return _db.UserList.Find(Id);
         }
     }
 }

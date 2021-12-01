@@ -63,3 +63,5 @@ C:\Users\kense\source\repos\TodoApplication\TodoApplication\obj\Debug\net5.0\Tod
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\obj\Debug\net5.0\TodoApplication.csproj.AssemblyReference.cache
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\kense\source\repos\TodoApplication\TodoApplication\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

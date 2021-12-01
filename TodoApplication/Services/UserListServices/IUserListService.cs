@@ -12,7 +12,7 @@ namespace TodoApplication.Services.UserListServices
         bool Authenticate(string username, string password);
 
         //ICollection<UserModel> GetUsers();
-        //UserModel GetUser(int nationalParkId);
+        UserModel GetUserById(int Id);
         bool CreateUser(UserModel user, string password);
         bool UserNameExists(string name);
         //bool UpdateNationalPark(NationalPark nationalPark);
